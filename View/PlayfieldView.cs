@@ -8,11 +8,11 @@ namespace SokoBan.View
 {
     public class PlayfieldView
     {
-        private Game game { get; }
+        private Game Game { get; }
 
-        public PlayfieldView(Game theGame)
+        public PlayfieldView(Game game)
         {
-            this.game = theGame;
+            Game = game;
         }
 
         public void showPlayField()
@@ -22,10 +22,11 @@ namespace SokoBan.View
             Console.WriteLine("└──────────┘");
             Console.WriteLine("─────────────────────────────────────────────────────────────────────────");
             // draw playfield on canvas
-            game.showPlayField();
+            Game.ShowPlayField();
             Console.WriteLine("");
             Console.WriteLine("─────────────────────────────────────────────────────────────────────────");
-            Console.WriteLine("> gebruik pijljestoetsen (s = stop, r = reset)");
+
+            Game.AskDirections();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using SokoBan.Model;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -9,6 +10,7 @@ namespace SokoBan
     public class Playfield
     {
         public GridList map;
+        public Forklifttruck forklifttruck;
 
         public Playfield(int level)
         {
@@ -20,7 +22,19 @@ namespace SokoBan
         public void loadPlayfield(int level)
         {
             // convert level to objects of right classes
-            string[] lines = System.IO.File.ReadAllLines((@"C:\Users\renat\OneDrive\Documents\Visual Studio 2015\Projects\Modelleren 3\Sokoban\Resources\doolhof" + level + ".txt"));
+            string[] lines;
+            try
+            {
+                lines = System.IO.File.ReadAllLines((@"\\Mac\Home\Downloads\Doolhof\doolhof" + level + ".txt"));
+            }
+            catch (DirectoryNotFoundException dirNotFound)
+            {
+                Console.WriteLine("File not found, cannot execute Sokoban. Sorry!");
+                Console.WriteLine("Press any key to stop Sokoban.");
+                Console.ReadLine();
+                System.Environment.Exit(1);
+                return;
+            }
 
             bool isFirstCharAndLine = true;
             bool isFirstLine = true;
@@ -49,12 +63,13 @@ namespace SokoBan
                             break;
                         case 'x':
                             // bestemming
-                            newTile = new Floor();
+                            newTile = new Destination();
                             break;
                         case '@':
                             // truck
                             newTile = new Floor();
-                            newTile.MoveableObject = new Forklifttruck(newTile);
+                            forklifttruck = new Forklifttruck(newTile);
+                            newTile.MoveableObject = forklifttruck;
                             break;
                         default:
                             // Empty aanmaken

@@ -8,27 +8,27 @@ namespace SokoBan
 {
     public class Game
     {
-        private Playfield playfield;
+        private Playfield _playfield;
 
-        public GameView gameView;
-        public PlayfieldView playfieldView;
+        public GameView _gameView;
+        public PlayfieldView _playfieldView;
 
         public Game()
         {
-            startGame();
+            StartGame();
         }
 
-        public void startGame()
+        public void StartGame()
         {
-            gameView = new GameView();
-            playfieldView = new PlayfieldView(this);
+            _gameView = new GameView();
+            _playfieldView = new PlayfieldView(this);
 
-            gameView.ShowStart();
-            askInput();
-            playfieldView.showPlayField();
+            _gameView.ShowStart();
+            AskLevel();
+            _playfieldView.showPlayField();
         }
 
-        public void askInput()
+        public void AskLevel()
         {
             bool canRead = false;
 
@@ -41,27 +41,27 @@ namespace SokoBan
                 {
                     case 's':
                         Console.Clear();
-                        stopGame();
+                        StopGame();
                         canRead = true;
                         break;
                     case '1':
                         Console.Clear();
-                        loadGame(1);
+                        LoadGame(1);
                         canRead = true;
                         break;
                     case '2':
                         Console.Clear();
-                        loadGame(2);
+                        LoadGame(2);
                         canRead = true;
                         break;
                     case '3':
                         Console.Clear();
-                        loadGame(3);
+                        LoadGame(3);
                         canRead = true;
                         break;
                     case '4':
                         Console.Clear();
-                        loadGame(4);
+                        LoadGame(4);
                         canRead = true;
                         break;
                     default:
@@ -71,17 +71,50 @@ namespace SokoBan
             }
         }
 
-        public void showPlayField()
+        public void AskDirections()
         {
-            playfield.showPlayField();
+            bool canRead = false;
+
+            while (!canRead)
+            {
+                Console.WriteLine(">     Gebruik pijljestoetsen (s = stop, r = reset)");
+
+                var input = Console.ReadKey(false).Key;
+                switch (input)
+                {
+                    case ConsoleKey.RightArrow:
+                        // forkliftruck move right
+                        canRead = true;
+                        return;
+                    case ConsoleKey.LeftArrow:
+                        // forkliftruck move left
+                        canRead = true;
+                        return;
+                    case ConsoleKey.UpArrow:
+                        // forkliftruck move up
+                        canRead = true;
+                        break;
+                    case ConsoleKey.DownArrow:
+                        // forkliftruck move down
+                        canRead = true;
+                        break;
+                }
+
+            }
+
         }
 
-        public void loadGame(int level)
+        public void ShowPlayField()
         {
-            playfield = new Playfield(level);
+            _playfield.showPlayField();
         }
 
-        public void stopGame()
+        public void LoadGame(int level)
+        {
+            _playfield = new Playfield(level);
+        }
+
+        public void StopGame()
         {
             System.Environment.Exit(1);
         }

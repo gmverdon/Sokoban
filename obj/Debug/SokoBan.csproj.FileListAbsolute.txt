@@ -1,7 +1,6 @@
 \\mac\home\documents\visual studio 2015\Projects\SokoBan\SokoBan\bin\Debug\SokoBan.exe.config
 \\Mac\Home\Documents\Visual Studio 2015\Projects\SokoBan\SokoBan\bin\Debug\SokoBan.exe
 \\Mac\Home\Documents\Visual Studio 2015\Projects\SokoBan\SokoBan\bin\Debug\SokoBan.pdb
-\\Mac\Home\Documents\Visual Studio 2015\Projects\SokoBan\SokoBan\obj\Debug\SokoBan.csprojResolveAssemblyReference.cache
 \\Mac\Home\Documents\Visual Studio 2015\Projects\SokoBan\SokoBan\obj\Debug\SokoBan.exe
 \\Mac\Home\Documents\Visual Studio 2015\Projects\SokoBan\SokoBan\obj\Debug\SokoBan.pdb
 C:\Users\renat\Desktop\Sokoban\bin\Debug\SokoBan.exe.config
