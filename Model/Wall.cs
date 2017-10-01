@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SokoBan.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,10 +27,11 @@ namespace SokoBan
             Console.Write("#");
         }
 
-        public override void MoveTo()
+        public override bool MoveTo(MoveableObject moveableObject)
         {
             // TODO: remove this writeline
             Console.WriteLine("Cannot move into wall");
+            return false;
         }
     }
 }

@@ -43,7 +43,8 @@ namespace SokoBan
                             break;
                         case 'o':
                             // krat
-                            newTile = new Box();
+                            newTile = new Floor();
+                            newTile.MoveableObject = new Box(newTile);
                             break;
                         case 'x':
                             // bestemming
@@ -51,7 +52,8 @@ namespace SokoBan
                             break;
                         case '@':
                             // truck
-                            newTile = new Forklifttruck();
+                            newTile = new Floor();
+                            newTile.MoveableObject = new Forklifttruck(newTile);
                             break;
                         default:
                             // Empty aanmaken

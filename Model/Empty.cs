@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using SokoBan.Model;
 
 namespace SokoBan
 {
@@ -11,6 +12,11 @@ namespace SokoBan
         public Empty()
         {
 
+        }
+
+        public override bool MoveTo(MoveableObject moveableObject)
+        {
+            return false;
         }
 
         public override void Show()

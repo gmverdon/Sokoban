@@ -1,16 +1,15 @@
-﻿using System;
+﻿using SokoBan.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace SokoBan
 {
-    public class Box : Tile
+    public class Box : MoveableObject
     {
-
-        public Box()
+        public Box(Tile currentTile) : base(currentTile)
         {
-
         }
 
         internal void draw()
@@ -20,13 +19,6 @@ namespace SokoBan
         public override void Show()
         {
             Console.Write("o");
-        }
-
-        public override void MoveTo(Tile tile)
-        {
-
-            // TODO: remove this writeline
-            Console.WriteLine("Cannot move into wall");
         }
     }
 }
