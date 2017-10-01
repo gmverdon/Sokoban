@@ -11,6 +11,7 @@ namespace SokoBan
         private Playfield playfield;
 
         public GameView gameView;
+        public PlayfieldView playfieldView;
 
         public Game()
         {
@@ -20,8 +21,11 @@ namespace SokoBan
         public void startGame()
         {
             gameView = new GameView();
+            playfieldView = new PlayfieldView(this);
+
             gameView.ShowStart();
             askInput();
+            playfieldView.showPlayField();
         }
 
         public void askInput()
@@ -36,22 +40,27 @@ namespace SokoBan
                 switch (input)
                 {
                     case 's':
+                        Console.Clear();
                         stopGame();
                         canRead = true;
                         break;
                     case '1':
+                        Console.Clear();
                         loadGame(1);
                         canRead = true;
                         break;
                     case '2':
+                        Console.Clear();
                         loadGame(2);
                         canRead = true;
                         break;
                     case '3':
+                        Console.Clear();
                         loadGame(3);
                         canRead = true;
                         break;
                     case '4':
+                        Console.Clear();
                         loadGame(4);
                         canRead = true;
                         break;
@@ -60,6 +69,11 @@ namespace SokoBan
                         break;
                 }
             }
+        }
+
+        public void showPlayField()
+        {
+            playfield.showPlayField();
         }
 
         public void loadGame(int level)

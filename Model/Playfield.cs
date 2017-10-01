@@ -20,7 +20,7 @@ namespace SokoBan
         public void loadPlayfield(int level)
         {
             // convert level to objects of right classes
-            string[] lines = System.IO.File.ReadAllLines((@"\\Mac\Home\Downloads\Doolhof\doolhof" + level + ".txt"));
+            string[] lines = System.IO.File.ReadAllLines((@"C:\Users\renat\OneDrive\Documents\Visual Studio 2015\Projects\Modelleren 3\Sokoban\Resources\doolhof" + level + ".txt"));
 
             bool isFirstCharAndLine = true;
             bool isFirstLine = true;
@@ -28,6 +28,7 @@ namespace SokoBan
 
             foreach (string line in lines)
             {
+                isFirstChar = true;
                 foreach (char c in line)
                 {
                     Tile newTile;
@@ -95,7 +96,7 @@ namespace SokoBan
                             map.Current.RightTile = newTile;
                             newTile.LeftTile = map.Current;
                             newTile.UpperTile = map.Current.UpperTile.RightTile;
-                            map.Current.UpperTile.RightTile.LowerTile = newTile;
+                            newTile.UpperTile.LowerTile = newTile;
                             map.Current = map.Current.RightTile;
                         }
                     }
@@ -103,6 +104,45 @@ namespace SokoBan
 
                 isFirstLine = false;
             }
+            Console.WriteLine("\n");
+            Console.WriteLine("");
+        }
+
+        public void showPlayField()
+        {
+            bool isNotLastLine = true;
+            int lineCounter = 1;
+            Tile currentTile = map.First;
+
+            while (isNotLastLine)
+            {
+                while (currentTile != null)
+                {
+                    currentTile.Show();
+                    currentTile = currentTile.RightTile;
+                }
+
+                lineCounter++;
+
+                currentTile = map.First;
+                for (int i = 1; i < lineCounter; i++)
+                {
+                    currentTile = currentTile.LowerTile;
+                }
+
+                if (currentTile.LowerTile == null)
+                {
+                    isNotLastLine = false;
+                }
+                Console.WriteLine("");
+            }
+
+            while (currentTile != null)
+            {
+                currentTile.Show();
+                currentTile = currentTile.RightTile;
+            }
+            
         }
     }
 }
