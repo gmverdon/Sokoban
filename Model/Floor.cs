@@ -33,27 +33,38 @@ namespace SokoBan
             if (this.MoveableObject != null)
             {
                 // When their is an object on current tile
+                bool result;
+                Tile tempTile;
 
                 if (requestObject.Tile == LowerTile)
                 {
-                    UpperTile.MoveTo(requestObject);
+                    tempTile = UpperTile;
                 }
                 else if (requestObject.Tile == LeftTile)
                 {
-                    RightTile.MoveTo(requestObject);
+                    tempTile = RightTile;
                 }
                 else if (requestObject.Tile == UpperTile)
                 {
-                    LowerTile.MoveTo(requestObject);
+                    tempTile = LowerTile;
                 }
                 else if (requestObject.Tile == RightTile)
                 {
-                    LeftTile.MoveTo(requestObject);
+                    tempTile = LeftTile;
                 } else
                 {
-                    Console.WriteLine("ERROR: This is not right!");
                     return false;
                 }
+
+                if (this.MoveableObject is Box && tempTile.MoveableObject is Box)
+                {
+                    return false;
+                } else
+                {
+                    result = tempTile.MoveTo(this.MoveableObject);
+                }
+
+                if (!result) {  return false; }
             }
 
             // When requestObject should be placed on current tile

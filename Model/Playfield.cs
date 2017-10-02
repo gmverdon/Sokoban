@@ -10,7 +10,7 @@ namespace SokoBan
     public class Playfield
     {
         public GridList map;
-        public Forklifttruck forklifttruck;
+        public Forklifttruck Forklifttruck { get; set; }
 
         public Playfield(int level)
         {
@@ -68,8 +68,8 @@ namespace SokoBan
                         case '@':
                             // truck
                             newTile = new Floor();
-                            forklifttruck = new Forklifttruck(newTile);
-                            newTile.MoveableObject = forklifttruck;
+                            Forklifttruck = new Forklifttruck(newTile);
+                            newTile.MoveableObject = Forklifttruck;
                             break;
                         default:
                             // Empty aanmaken
@@ -158,6 +158,11 @@ namespace SokoBan
                 currentTile = currentTile.RightTile;
             }
             
+        }
+
+        public void ClearPlayField()
+        {
+            Console.Clear();
         }
     }
 }

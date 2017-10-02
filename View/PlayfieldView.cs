@@ -27,6 +27,7 @@ namespace SokoBan.View
             Console.WriteLine("─────────────────────────────────────────────────────────────────────────");
 
             Game.AskDirections();
+            Game.ShowVictory();
         }
     }
 }

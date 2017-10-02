@@ -13,9 +13,12 @@ namespace SokoBan
         public GameView _gameView;
         public PlayfieldView _playfieldView;
 
+        private bool isPlaying = true;
+
         public Game()
         {
             StartGame();
+            isPlaying = true;
         }
 
         public void StartGame()
@@ -73,39 +76,54 @@ namespace SokoBan
 
         public void AskDirections()
         {
-            bool canRead = false;
-
-            while (!canRead)
+            while (isPlaying)
             {
-                Console.WriteLine(">     Gebruik pijljestoetsen (s = stop, r = reset)");
 
-                var input = Console.ReadKey(false).Key;
-                switch (input)
+                bool canRead = false;
+                while (!canRead)
                 {
-                    case ConsoleKey.RightArrow:
-                        // forkliftruck move right
-                        canRead = true;
-                        return;
-                    case ConsoleKey.LeftArrow:
-                        // forkliftruck move left
-                        canRead = true;
-                        return;
-                    case ConsoleKey.UpArrow:
-                        // forkliftruck move up
-                        canRead = true;
-                        break;
-                    case ConsoleKey.DownArrow:
-                        // forkliftruck move down
-                        canRead = true;
-                        break;
+                    Console.WriteLine(">     Gebruik pijljestoetsen (s = stop, r = reset)");
+
+                    var input = Console.ReadKey(false).Key;
+                    switch (input)
+                    {
+                        case ConsoleKey.UpArrow:
+                            // forkliftruck move up
+                            _playfield.Forklifttruck.Move(0);
+                            canRead = true;
+                            break;
+                        case ConsoleKey.RightArrow:
+                            // forkliftruck move right
+                            _playfield.Forklifttruck.Move(1);
+                            canRead = true;
+                            break;
+                        case ConsoleKey.DownArrow:
+                            // forkliftruck move down
+                            _playfield.Forklifttruck.Move(2);
+                            canRead = true;
+                            break;
+                        case ConsoleKey.LeftArrow:
+                            // forkliftruck move left
+                            _playfield.Forklifttruck.Move(3);
+                            canRead = true;
+                            break;
+                    }
+                    ShowPlayField();
+                    checkIfWon();
+                    canRead = false;
                 }
 
             }
+        }
 
+        private void checkIfWon()
+        {
+            throw new NotImplementedException();
         }
 
         public void ShowPlayField()
         {
+            _playfield.ClearPlayField();
             _playfield.showPlayField();
         }
 

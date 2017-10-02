@@ -14,7 +14,15 @@ namespace SokoBan.Model
 
         public override void Show()
         {
-            Console.Write("x");
+            if (this.MoveableObject != null)
+            {
+                MoveableObject.Show();
+            }
+            else
+            {
+                Console.Write("x");
+            }
+            
         }
     }
 }

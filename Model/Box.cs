@@ -18,7 +18,13 @@ namespace SokoBan
         }
         public override void Show()
         {
-            Console.Write("o");
+            if (this.Tile is Destination)
+            {
+                Console.Write("0");
+            } else
+            {
+                Console.Write("o");
+            }
         }
     }
 }

@@ -12,3 +12,4 @@ C:\Users\renat\OneDrive\Documents\Visual Studio 2015\Projects\Modelleren 3\Sokob
 C:\Users\renat\OneDrive\Documents\Visual Studio 2015\Projects\Modelleren 3\Sokoban\bin\Debug\SokoBan.exe
 C:\Users\renat\OneDrive\Documents\Visual Studio 2015\Projects\Modelleren 3\Sokoban\bin\Debug\SokoBan.pdb
 C:\Users\renat\OneDrive\Documents\Visual Studio 2015\Projects\Modelleren 3\Sokoban\obj\Debug\SokoBan.csprojResolveAssemblyReference.cache
+\\Mac\Home\Documents\Visual Studio 2015\Projects\SokoBan\SokoBan\obj\Debug\SokoBan.csprojResolveAssemblyReference.cache
