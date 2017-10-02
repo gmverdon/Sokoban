@@ -58,6 +58,7 @@
     <Compile Include="Model\Wall.cs" />
     <Compile Include="View\GameView.cs" />
     <Compile Include="View\PlayfieldView.cs" />
+    <Compile Include="View\VictoryView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

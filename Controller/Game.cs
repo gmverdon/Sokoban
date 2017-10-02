@@ -12,23 +12,31 @@ namespace SokoBan
 
         public GameView _gameView;
         public PlayfieldView _playfieldView;
+        public VictoryView _victoryView;
 
         private bool isPlaying = true;
+        private int _labirinthNumber;
 
         public Game()
         {
-            StartGame();
-            isPlaying = true;
+            while (true)
+            {
+                isPlaying = true;
+                StartGame();
+            }
         }
 
         public void StartGame()
         {
             _gameView = new GameView();
             _playfieldView = new PlayfieldView(this);
+            
 
             _gameView.ShowStart();
             AskLevel();
             _playfieldView.showPlayField();
+            AskDirections();
+            ShowVictory();
         }
 
         public void AskLevel()
@@ -44,27 +52,31 @@ namespace SokoBan
                 {
                     case 's':
                         Console.Clear();
-                        StopGame();
+                        EndApplicationGame();
                         canRead = true;
                         break;
                     case '1':
+                        _labirinthNumber = 1;
                         Console.Clear();
-                        LoadGame(1);
+                        LoadGame(_labirinthNumber);
                         canRead = true;
                         break;
                     case '2':
+                        _labirinthNumber = 2;
                         Console.Clear();
-                        LoadGame(2);
+                        LoadGame(_labirinthNumber);
                         canRead = true;
                         break;
                     case '3':
+                        _labirinthNumber = 3;
                         Console.Clear();
-                        LoadGame(3);
+                        LoadGame(_labirinthNumber);
                         canRead = true;
                         break;
                     case '4':
+                        _labirinthNumber = 4;
                         Console.Clear();
-                        LoadGame(4);
+                        LoadGame(_labirinthNumber);
                         canRead = true;
                         break;
                     default:
@@ -82,11 +94,21 @@ namespace SokoBan
                 bool canRead = false;
                 while (!canRead)
                 {
+                    Console.WriteLine("─────────────────────────────────────────────────────────────────────────");
                     Console.WriteLine(">     Gebruik pijljestoetsen (s = stop, r = reset)");
 
                     var input = Console.ReadKey(false).Key;
                     switch (input)
                     {
+                        case "r":
+                            Console.Clear();
+                            LoadGame(_labirinthNumber);
+                            break;
+                        case "s":
+                            Console.Clear();
+                            StopGame();
+                            canRead = true;
+                            break;
                         case ConsoleKey.UpArrow:
                             // forkliftruck move up
                             _playfield.Forklifttruck.Move(0);
@@ -109,16 +131,25 @@ namespace SokoBan
                             break;
                     }
                     ShowPlayField();
-                    checkIfWon();
+
+                    if(checkIfWon())
+                    {
+                        break;
+                    }
+
                     canRead = false;
                 }
-
             }
         }
 
-        private void checkIfWon()
+        private bool checkIfWon()
         {
-            throw new NotImplementedException();
+            if(_playfield.checkIfWon())
+            {
+                isPlaying = false;
+            }
+
+            return _playfield.checkIfWon();
         }
 
         public void ShowPlayField()
@@ -127,14 +158,29 @@ namespace SokoBan
             _playfield.showPlayField();
         }
 
+        public void ShowVictory()
+        {
+            _victoryView = new VictoryView();
+            _victoryView.showVictory();
+        }
+
         public void LoadGame(int level)
         {
             _playfield = new Playfield(level);
         }
 
-        public void StopGame()
+        public void EndApplicationGame()
         {
             System.Environment.Exit(1);
+        }
+
+        public void StopGame()
+        {
+            while (true)
+            {
+                isPlaying = true;
+                StartGame();
+            }
         }
     }
 }

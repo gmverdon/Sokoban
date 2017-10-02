@@ -11,6 +11,7 @@ namespace SokoBan.View
 
         public void ShowStart()
         {
+            Console.Clear();
             Console.WriteLine("______________________________________________________________");
             Console.WriteLine("|     Welkom bij Sokoban.                                    |");
             Console.WriteLine("|                                  |                         |");

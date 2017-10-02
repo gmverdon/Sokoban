@@ -23,11 +23,6 @@ namespace SokoBan.View
             Console.WriteLine("─────────────────────────────────────────────────────────────────────────");
             // draw playfield on canvas
             Game.ShowPlayField();
-            Console.WriteLine("");
-            Console.WriteLine("─────────────────────────────────────────────────────────────────────────");
-
-            Game.AskDirections();
-            Game.ShowVictory();
         }
     }
 }

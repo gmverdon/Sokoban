@@ -25,7 +25,7 @@ namespace SokoBan
             string[] lines;
             try
             {
-                lines = System.IO.File.ReadAllLines((@"\\Mac\Home\Downloads\Doolhof\doolhof" + level + ".txt"));
+                lines = System.IO.File.ReadAllLines((@"C:\Users\renat\OneDrive\Documents\Visual Studio 2015\Projects\Modelleren 3\Sokoban\Resources\doolhof" + level + ".txt"));
             }
             catch (DirectoryNotFoundException dirNotFound)
             {
@@ -123,8 +123,61 @@ namespace SokoBan
             Console.WriteLine("");
         }
 
+        public bool checkIfWon()
+        {
+            bool isNotLastLine = true;
+            int lineCounter = 1;
+            Tile currentTile = map.First;
+
+            while (isNotLastLine)
+            {
+                while (currentTile != null)
+                {
+                    bool currentTileIsDestination = currentTile is Destination;
+                    bool moveableObjectisBox = currentTile.MoveableObject is Box;
+
+                    if ((currentTileIsDestination && !moveableObjectisBox) || (!currentTileIsDestination && moveableObjectisBox))
+                    {
+                        return false;
+                    }
+                    currentTile = currentTile.RightTile;
+                }
+
+                lineCounter++;
+
+                currentTile = map.First;
+                for (int i = 1; i < lineCounter; i++)
+                {
+                    currentTile = currentTile.LowerTile;
+                }
+
+                if (currentTile.LowerTile == null)
+                {
+                    isNotLastLine = false;
+                }
+            }
+
+            while (currentTile != null)
+            {
+                bool currentTileIsDestination = currentTile is Destination;
+                bool moveableObjectisBox = currentTile.MoveableObject is Box;
+
+                if ((currentTileIsDestination && !moveableObjectisBox) || (!currentTileIsDestination && moveableObjectisBox))
+                {
+                    return false;
+                }
+                currentTile = currentTile.RightTile;
+            }
+            return true;
+        }
+
         public void showPlayField()
         {
+            Console.WriteLine("┌──────────┐");
+            Console.WriteLine("| Sokoban  |");
+            Console.WriteLine("└──────────┘");
+            Console.WriteLine("─────────────────────────────────────────────────────────────────────────");
+
             bool isNotLastLine = true;
             int lineCounter = 1;
             Tile currentTile = map.First;
@@ -157,7 +210,8 @@ namespace SokoBan
                 currentTile.Show();
                 currentTile = currentTile.RightTile;
             }
-            
+            Console.WriteLine("");
+
         }
 
         public void ClearPlayField()
