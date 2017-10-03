@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SokoBan.View
 {
     public class GameView
     {
-
         public void ShowStart()
         {
             Console.Clear();

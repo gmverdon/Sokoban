@@ -100,11 +100,11 @@ namespace SokoBan
                     var input = Console.ReadKey(false).Key;
                     switch (input)
                     {
-                        case "r":
+                        case ConsoleKey.R:
                             Console.Clear();
                             LoadGame(_labirinthNumber);
                             break;
-                        case "s":
+                        case ConsoleKey.S:
                             Console.Clear();
                             StopGame();
                             canRead = true;

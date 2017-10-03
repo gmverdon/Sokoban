@@ -1,9 +1,6 @@
 ﻿using SokoBan.Model;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 
 namespace SokoBan
 {
@@ -15,7 +12,6 @@ namespace SokoBan
         public Playfield(int level)
         {
             map = new GridList();
-
             loadPlayfield(level);
         }
 
@@ -23,9 +19,10 @@ namespace SokoBan
         {
             // convert level to objects of right classes
             string[] lines;
+
             try
             {
-                lines = System.IO.File.ReadAllLines((@"C:\Users\renat\OneDrive\Documents\Visual Studio 2015\Projects\Modelleren 3\Sokoban\Resources\doolhof" + level + ".txt"));
+                lines = System.IO.File.ReadAllLines((@"\\Mac\Home\Downloads\Doolhof\doolhof" + level + ".txt"));
             }
             catch (DirectoryNotFoundException dirNotFound)
             {
@@ -120,7 +117,7 @@ namespace SokoBan
                 isFirstLine = false;
             }
             Console.WriteLine("\n");
-            Console.WriteLine("");
+            Console.WriteLine();
         }
 
         public bool checkIfWon()
@@ -173,11 +170,6 @@ namespace SokoBan
 
         public void showPlayField()
         {
-            Console.WriteLine("┌──────────┐");
-            Console.WriteLine("| Sokoban  |");
-            Console.WriteLine("└──────────┘");
-            Console.WriteLine("─────────────────────────────────────────────────────────────────────────");
-
             bool isNotLastLine = true;
             int lineCounter = 1;
             Tile currentTile = map.First;
@@ -202,7 +194,7 @@ namespace SokoBan
                 {
                     isNotLastLine = false;
                 }
-                Console.WriteLine("");
+                Console.WriteLine();
             }
 
             while (currentTile != null)
@@ -210,7 +202,7 @@ namespace SokoBan
                 currentTile.Show();
                 currentTile = currentTile.RightTile;
             }
-            Console.WriteLine("");
+            Console.WriteLine();
 
         }
 
