@@ -2,6 +2,7 @@
 {
     public abstract class MoveableObject
     {
+        public bool CanMoveOtherObject { get; set; } = true;
         public Tile Tile { get; set; }
 
         public MoveableObject(Tile currentTile)

@@ -7,6 +7,7 @@ namespace SokoBan
     {
         public Box(Tile currentTile) : base(currentTile)
         {
+            CanMoveOtherObject = false;
         }
 
         public override void Show()

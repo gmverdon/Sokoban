@@ -52,6 +52,7 @@
     <Compile Include="Model\GridList.cs" />
     <Compile Include="Model\MoveableObject.cs" />
     <Compile Include="Model\Playfield.cs" />
+    <Compile Include="Model\Trap.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Model\Tile.cs" />

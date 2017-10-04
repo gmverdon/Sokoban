@@ -5,7 +5,6 @@ namespace SokoBan
 {
     public class Floor : Tile
     {
-        public int TimesWalkedOver { get; set; }
 
         public override void Show()
         {
@@ -46,10 +45,11 @@ namespace SokoBan
                     return false;
                 }
 
-                if (this.MoveableObject is Box && tempTile.MoveableObject is Box)
+                if (!MoveableObject.CanMoveOtherObject && tempTile.MoveableObject != null && !tempTile.MoveableObject.CanMoveOtherObject)
                 {
                     return false;
-                } else
+                }
+                else
                 {
                     result = tempTile.MoveTo(this.MoveableObject);
                 }
