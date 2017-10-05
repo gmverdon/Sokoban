@@ -22,7 +22,7 @@ namespace SokoBan
 
             try
             {
-                lines = System.IO.File.ReadAllLines((@"\\Mac\Home\Downloads\Doolhof\doolhof" + level + ".txt"));
+                lines = System.IO.File.ReadAllLines((@"C:\Users\renat\OneDrive\Documents\Visual Studio 2015\Projects\Modelleren 3\Sokoban\Resources\doolhof" + level + ".txt"));
             }
             catch (DirectoryNotFoundException dirNotFound)
             {
@@ -45,6 +45,10 @@ namespace SokoBan
                     Tile newTile;
                     switch (c)
                     {
+                        case '~':
+                            //val
+                            newTile = new Trap();
+                            break;
                         case '#':
                             // muur
                             newTile = new Wall();
