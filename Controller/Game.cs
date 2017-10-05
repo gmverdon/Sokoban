@@ -45,7 +45,7 @@ namespace SokoBan
 
             while(!canRead)
             {
-                Console.WriteLine(">     Kies een doolhof (1 - 4), s = stop");
+                Console.WriteLine(">     Kies een doolhof (1 - 6), s = stop");
                 char input = Console.ReadKey().KeyChar;
 
                 switch (input)
@@ -75,6 +75,18 @@ namespace SokoBan
                         break;
                     case '4':
                         _labirinthNumber = 4;
+                        Console.Clear();
+                        LoadGame(_labirinthNumber);
+                        canRead = true;
+                        break;
+                    case '5':
+                        _labirinthNumber = 5;
+                        Console.Clear();
+                        LoadGame(_labirinthNumber);
+                        canRead = true;
+                        break;
+                    case '6':
+                        _labirinthNumber = 6;
                         Console.Clear();
                         LoadGame(_labirinthNumber);
                         canRead = true;
