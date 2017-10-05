@@ -81,7 +81,7 @@ namespace SokoBan.Model
             // Set requestObject tile on current tile
             requestObject.Tile = this;
 
-            if (TimesWalkedOver >= 3)
+            if (TimesWalkedOver >= 3 && !requestObject.CanMoveOtherObject)
             {
                 MoveableObject = null;
             }
