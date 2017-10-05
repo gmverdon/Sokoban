@@ -4,7 +4,6 @@ namespace SokoBan.View
 {
     public class PlayfieldView
     {
-        private Game Game { get; }
 
         public PlayfieldView(Game game)
         {

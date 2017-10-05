@@ -53,7 +53,7 @@
     <Compile Include="Model\MoveableObject.cs" />
     <Compile Include="Model\Playfield.cs" />
     <Compile Include="Model\Trap.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Application\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Model\Tile.cs" />
     <Compile Include="Model\Wall.cs" />
@@ -63,7 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="DKD.cd" />
+    <None Include="Sokoban_MODL3.cd" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
