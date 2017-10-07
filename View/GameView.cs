@@ -19,9 +19,9 @@ namespace SokoBan.View
             Console.WriteLine("|          0 : krat op bestemming  |                         |");
             Console.WriteLine("|          x : bestemming          |                         |");
             Console.WriteLine("|          @ : truck               |                         |");
+            Console.WriteLine("|          ~ : valkuil             |                         |");
             Console.WriteLine("|____________________________________________________________|");
             Console.WriteLine();
-
         }
     }
 }

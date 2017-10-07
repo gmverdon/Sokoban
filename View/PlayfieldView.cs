@@ -4,10 +4,11 @@ namespace SokoBan.View
 {
     public class PlayfieldView
     {
+        private Game game;
 
         public PlayfieldView(Game game)
         {
-            Game = game;
+            this.game = game;
         }
 
         public void showPlayField()
@@ -17,7 +18,7 @@ namespace SokoBan.View
             Console.WriteLine("└──────────┘");
             Console.WriteLine("─────────────────────────────────────────────────────────────────────────");
             // draw playfield on canvas
-            Game.ShowPlayField();
+            game.ShowPlayField();
         }
     }
 }
