@@ -7,27 +7,27 @@
       <FileName>Controller\Game.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="_gameView" />
       <Field Name="_playfield" />
+      <Field Name="_gameView" />
       <Field Name="_playfieldView" />
       <Field Name="_victoryView" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="SokoBan.Box" Collapsed="true">
-    <Position X="6.5" Y="8.75" Width="1.5" />
+  <Class Name="SokoBan.Box">
+    <Position X="2.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Box.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SokoBan.Empty">
-    <Position X="1.5" Y="3.5" Width="1.5" />
+    <Position X="2.25" Y="3.75" Width="1.5" />
     <InheritanceLine Type="SokoBan.Tile" FixedFromPoint="true">
       <Path>
-        <Point X="4.25" Y="3.017" />
-        <Point X="4.25" Y="3.267" />
-        <Point X="2.25" Y="3.267" />
-        <Point X="2.25" Y="3.5" />
+        <Point X="4.75" Y="3.017" />
+        <Point X="4.75" Y="3.29" />
+        <Point X="3" Y="3.29" />
+        <Point X="3" Y="3.75" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
@@ -36,14 +36,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SokoBan.Floor">
-    <Position X="3.5" Y="4" Width="1.5" />
+    <Position X="4" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Floor.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SokoBan.Forklifttruck" Collapsed="true">
-    <Position X="4" Y="8.75" Width="1.5" />
+  <Class Name="SokoBan.Forklifttruck">
+    <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Forklifttruck.cs</FileName>
@@ -60,7 +60,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="SokoBan.Tile">
-    <Position X="3.5" Y="0.5" Width="1.5" />
+    <Position X="4" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAAABAAACAAAAAEAAAAAAAAAgAAMAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Tile.cs</FileName>
@@ -70,8 +70,8 @@
     <Position X="6.25" Y="3.5" Width="1.5" />
     <InheritanceLine Type="SokoBan.Tile" ManuallyRouted="true" FixedFromPoint="true">
       <Path>
-        <Point X="4.25" Y="3.017" />
-        <Point X="4.25" Y="3.29" />
+        <Point X="4.75" Y="3.017" />
+        <Point X="4.75" Y="3.29" />
         <Point X="7" Y="3.29" />
         <Point X="7" Y="3.5" />
       </Path>
@@ -102,16 +102,22 @@
       <FileName>Model\GridList.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="Current" />
       <Property Name="First" />
+      <Property Name="Current" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="SokoBan.Model.MoveableObject" Collapsed="true">
-    <Position X="5" Y="7.75" Width="1.5" />
+  <Class Name="SokoBan.Model.MoveableObject">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAAEAAAAAAAAAAAAAQA=</HashCode>
       <FileName>Model\MoveableObject.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Tile" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="SokoBan.Model.Trap">
     <Position X="2.5" Y="6" Width="1.5" />
@@ -120,7 +126,7 @@
       <FileName>Model\Trap.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SokoBan.View.GameView" Collapsed="true">
+  <Class Name="SokoBan.View.GameView">
     <Position X="12.75" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
@@ -128,13 +134,13 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SokoBan.View.PlayfieldView">
-    <Position X="12.5" Y="2.75" Width="1.5" />
+    <Position X="12.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
       <FileName>View\PlayfieldView.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SokoBan.View.VictoryView" Collapsed="true">
+  <Class Name="SokoBan.View.VictoryView">
     <Position X="7.25" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>

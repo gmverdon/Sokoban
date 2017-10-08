@@ -20,9 +20,11 @@ namespace SokoBan
             // convert level to objects of right classes
             string[] lines;
 
+            String startupPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName.ToString();
+
             try
             {
-                lines = System.IO.File.ReadAllLines((@"C:\Users\renat\OneDrive\Documents\Visual Studio 2015\Projects\Modelleren 3\Sokoban\Resources\doolhof" + level + ".txt"));
+                lines = System.IO.File.ReadAllLines((@"" + startupPath + "/Sokoban/Doolhoffen/doolhof" + level + ".txt"));
             }
             catch (DirectoryNotFoundException dirNotFound)
             {
@@ -137,7 +139,7 @@ namespace SokoBan
                     bool currentTileIsDestination = currentTile is Destination;
                     bool moveableObjectisBox = currentTile.MoveableObject is Box;
 
-                    if ((currentTileIsDestination && !moveableObjectisBox) || (!currentTileIsDestination && moveableObjectisBox))
+                    if (moveableObjectisBox && !currentTileIsDestination)
                     {
                         return false;
                     }
